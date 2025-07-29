@@ -28,11 +28,7 @@ const reservationsData = [
   }
 ];
 
-/**
- * Formats a date string into a more readable format
- * @param {string} dateString - Date in YYYY-MM-DD format
- * @returns {string} Formatted date string
- */
+// Formats a date string (YYYY-MM-DD) into a more readable format (e.g., "Short, Month Day, Year").
 const formatDate = (dateString) => {
   const date = new Date(dateString);
   const options = { 
@@ -44,11 +40,7 @@ const formatDate = (dateString) => {
   return date.toLocaleDateString('en-US', options);
 };
 
-/**
- * Formats a time string into 12-hour format
- * @param {string} timeString - Time in HH:MM format
- * @returns {string} Formatted time string
- */
+// Formats a time string (HH:MM) into a 12-hour format (e.g., "7:00 PM").
 const formatTime = (timeString) => {
   const [hours, minutes] = timeString.split(':');
   const hour = parseInt(hours);
@@ -57,11 +49,7 @@ const formatTime = (timeString) => {
   return `${formattedHour}:${minutes} ${ampm}`;
 };
 
-/**
- * Individual reservation card component
- * @param {Object} reservation - Reservation object
- * @param {Function} onCancel - Cancel handler function
- */
+// Renders an individual reservation card, displaying its details and a cancel button.
 const ReservationCard = ({ reservation, onCancel }) => {
   const { id, venueName, date, time, partySize, status } = reservation;
 
@@ -107,14 +95,9 @@ const ReservationCard = ({ reservation, onCancel }) => {
   );
 };
 
-/**
- * Main Reservations component that displays all upcoming reservations
- */
+// The main component that renders the list of upcoming reservations.
 const Reservations = () => {
-  /**
-   * Handles the cancellation of a reservation
-   * @param {number} reservationId - ID of the reservation to cancel
-   */
+  // Handles the cancellation of a reservation by logging its ID.
   const handleCancel = (reservationId) => {
     console.log("Cancel reservation:", reservationId);
   };
